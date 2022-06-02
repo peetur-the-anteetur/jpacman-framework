@@ -10,6 +10,11 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
+/**
+ * Tests various aspects of level.
+ *
+ * @author Peetur the Anteetur
+ */
 public class PeetursLevelTest {
     /**
      * The level under test.
