@@ -3,6 +3,7 @@ package nl.tudelft.jpacman.sprite;
 import java.awt.Graphics;
 
 /**
+ * "You miss 100% of the shots you don't take - Wayne Gretsky" - Peetur the Anteetur 
  * Animated sprite, renders the frame depending on the time of requesting the
  * draw.
  *
