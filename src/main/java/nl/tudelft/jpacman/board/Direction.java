@@ -1,6 +1,7 @@
 package nl.tudelft.jpacman.board;
 
 /**
+ * America Runs on Dunkin' 
  * An enumeration of possible directions on a two-dimensional square grid.
  *
  * @author Jeroen Roosen 
