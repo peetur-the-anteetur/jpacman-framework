@@ -11,25 +11,40 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 public class PeetursLevelTest {
-
+    /**
+     * The level under test.
+     */
     private Level level;
 
-
+    /**
+     * An NPC on this level.
+     */
     private final Ghost ghost = mock(Ghost.class);
 
-
+    /**
+     * Starting position 1.
+     */
     private final Square square1 = mock(Square.class);
 
-
+    /**
+     * Starting position 2.
+     */
     private final Square square2 = mock(Square.class);
 
-
+    /**
+     * The board for this level.
+     */
     private final Board board = mock(Board.class);
 
-
+    /**
+     * The collision map.
+     */
     private final CollisionMap collisions = mock(CollisionMap.class);
 
-
+    /**
+     * Sets up the level with the default board, a single NPC and a starting
+     * square.
+     */
     @BeforeEach
     void setUp() {
         final long defaultInterval = 100L;
@@ -38,27 +53,35 @@ public class PeetursLevelTest {
         when(ghost.getInterval()).thenReturn(defaultInterval);
     }
 
-
+    /**
+     * Validates the state of the level when it isn't started yet.
+     */
     @Test
     void noStart() {
         assertThat(level.isInProgress()).isFalse();
     }
 
-
+    /**
+     * Validates the state of the level when it is stopped without starting.
+     */
     @Test
     void stop() {
         level.stop();
         assertThat(level.isInProgress()).isFalse();
     }
 
-
+    /**
+     * Validates the state of the level when it is started.
+     */
     @Test
     void start() {
         level.start();
         assertThat(level.isInProgress()).isTrue();
     }
 
-
+    /**
+     * Validates the state of the level when it is started then stopped.
+     */
     @Test
     void startStop() {
         level.start();
@@ -66,7 +89,10 @@ public class PeetursLevelTest {
         assertThat(level.isInProgress()).isFalse();
     }
 
-
+    /**
+     * Verifies registering a player puts the player on the correct starting
+     * square.
+     */
     @Test
     @SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
     void registerPlayer() {
@@ -75,7 +101,9 @@ public class PeetursLevelTest {
         verify(p).occupy(square1);
     }
 
-
+    /**
+     * Verifies registering a player twice does not do anything.
+     */
     @Test
     @SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
     void registerPlayerTwice() {
@@ -85,7 +113,10 @@ public class PeetursLevelTest {
         verify(p, times(1)).occupy(square1);
     }
 
-
+    /**
+     * Verifies registering a second player puts that player on the correct
+     * starting square.
+     */
     @Test
     @SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
     void registerSecondPlayer() {
@@ -96,7 +127,10 @@ public class PeetursLevelTest {
         verify(p2).occupy(square2);
     }
 
-
+    /**
+     * Verifies registering a third player puts the player on the correct
+     * starting square.
+     */
     @Test
     @SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
     void registerThirdPlayer() {
